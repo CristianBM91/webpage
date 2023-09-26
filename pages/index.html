@@ -4,23 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script src="https://kit.fontawesome.com/366b66a2be.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../styles/indexStyles.css">
 </head>
 <body>
     <div class="contenedorMedicion">
-        <h1>medicion actual</h1>
+        <div class="contenedor_titulo"> <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: #333333;">Medidor de ozono</h1>
+            <button id="miBoton"><i class="fa-solid fa-repeat"></i></button></div>
+       
         <div class="medicion">
-            <div class="medicion_ozono">
-                <h2>Última medición</h2>
-                <p>200 ppm</p>
+            <div class="medicion_a" id="medicionOzono">
+                <div class="icono" id="iconoOzono"><h2><i class="fa-solid fa-o"></i><i class="fa-solid fa-3 fa-2xs"></i></h2>
+                </div>
+                <div class="texto" id="textoOzono"><p id="resultadoOzono" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">0 ppm</p>
+                </div>
             </div>
-            <div class="medicion_fecha">
-                <h2>fecha de la última medición:</h2>
-                <p>20/10/1990</p>
+            <div class="medicion_a">
+                <div class="icono"><h2><i class="fa-solid fa-calendar-days"></i></h2>
+                </div>
+                <div class="texto"><p id="resultadoFecha" style="font-family: Verdana, Geneva, Tahoma, sans-serif;"></p>
+                </div>
             </div>
-            <div class="medicion_temp">
-                <h2>temperatura</h2>
-                <p>20°</p>
+            <div class="medicion_a">
+                <div class="icono"><h2><i class="fa-solid fa-temperature-three-quarters"></i></h2></div>
+                <div class="texto"><p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">20°</p></div>
+                
+                
             </div>
+            
+
+            
     </div>
+    <script src="../scripts/leerUltimaMedicion.js"></script>
+    <script src="../scripts/llamar.js"></script>
+    
 </body>
 </html>

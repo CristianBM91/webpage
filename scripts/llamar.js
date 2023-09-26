@@ -3,7 +3,7 @@
 // llama a una función remota enviando POST <nombreFuncion>
 //
 // ---------------------------------------------------
-module.exports = function llamar( nombreFuncion, parametrosLlamada, cb ) {
+function llamar( nombreFuncion, parametrosLlamada, cb ) {
 	// preparar la llamada remota
 	var xmlhttp = new XMLHttpRequest()
 	xmlhttp.onreadystatechange = function() {
@@ -24,7 +24,7 @@ module.exports = function llamar( nombreFuncion, parametrosLlamada, cb ) {
 			//
 			try {
 
-				resultado = JSON.parse( resultado )
+				resultado = JSON.parse( resultado[0] )
 
 				console.log( "    no he podido hacer parse de " + resultado )
 				
