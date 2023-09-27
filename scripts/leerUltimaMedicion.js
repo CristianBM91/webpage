@@ -1,6 +1,44 @@
-// ---------------------------------------------------
-// fake
-// ---------------------------------------------------
+/**
+ * Función que realiza una petición GET a la ruta /medicion
+ * 
+ * url: String ->
+ *                   leerUltimaMedicion()
+ * datos: Object ->
+ * 
+ * 
+ *  La función recibe como parámetros la ruta a la que se realizará la petición,
+ * los datos que se enviarán en la petición y la función que se ejecutará cuando
+ * se reciba la respuesta.
+ * 
+ * La función realiza una petición GET a la ruta /medicion, enviando los
+ * datos recibidos como parámetro. Cuando se reciba la respuesta, se debe ejecutar
+ * la función recibida como parámetro, enviando como parámetros el estado de la
+ * petición y el resultado de la misma.
+ * 
+ * El estado de la petición puede ser:
+ * - 200: La petición se realizó correctamente
+ * - 404: La ruta no existe
+ * - 500: Error interno del servidor
+ * 
+ * El resultado de la petición es un objeto JSON con la siguiente estructura:
+ * {
+ *  "valorOzono": 0.0,
+ * "fecha": "2020-11-03T17:00:00.000Z",
+ * "localiz": "27.5, -109.9"
+ * }
+ * 
+ * @param {string} url - La ruta a la que se realizará la petición
+ * @param {object} datos - Los datos que se enviarán en la petición
+ * @param {function} cb - La función que se ejecutará cuando se reciba la respuesta
+ * @returns {void}
+ * 
+ * @example
+ * llamar( "http://localhost:1234/medicion", {}, function cb(estado, resultado){
+ *    console.log(estado);
+ *   console.log(resultado);
+ * }
+ * );
+ */
 const IP_PUERTO="http://localhost:1234";
 
 
@@ -17,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         llamar( IP_PUERTO + "/medicion", datos, function cb(estado, resultado){
             var pResultado = document.getElementById('resultadoOzono');
             var pResultadoFecha = document.getElementById('resultadoFecha');
+            var pResultadoLocalizacion = document.getElementById('resultadoLocaliz');
 
         // Verifica si se encontró el elemento
         if (pResultado) {
@@ -26,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pResultado.textContent = objetoJson.valorOzono + " ppm";
             var fechaLegible = convertirFechaLegible(objetoJson.fecha);
             pResultadoFecha.textContent = fechaLegible;
+            pResultadoLocalizacion.textContent = objetoJson.localiz;
            
            
         // Obtener el elemento p por su id
