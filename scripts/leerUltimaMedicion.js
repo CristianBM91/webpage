@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         llamar( IP_PUERTO + "/medicion", datos, function cb(estado, resultado){
             var pResultado = document.getElementById('resultadoOzono');
+            var pResultadoTemp = document.getElementById('resultadoTemp');
             var pResultadoFecha = document.getElementById('resultadoFecha');
             var pResultadoLocalizacion = document.getElementById('resultadoLocaliz');
 
@@ -58,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
             objetoJson = resultado.slice(1, -1);
             objetoJson = JSON.parse(objetoJson);
             pResultado.textContent = objetoJson.valorOzono + " ppm";
+            pResultadoTemp.textContent = objetoJson.valorTemp + " ºC";
             var fechaLegible = convertirFechaLegible(objetoJson.fecha);
             pResultadoFecha.textContent = fechaLegible;
             pResultadoLocalizacion.textContent = objetoJson.localiz;
